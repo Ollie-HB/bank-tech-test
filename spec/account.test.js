@@ -24,4 +24,26 @@ describe('Account', () => {
       account.withdraw(50)
       expect(account.getBalance()).toEqual(50);
   });
+
+  it('initialises with an empty transactions array', () => {
+    expect(account.getTransactions()).toEqual([]);
+  });
+  
+  it('adds a "transaction" object to the array via deposit and updates balance', () => {
+    account.deposit(100, '13/11/2022')
+    expect(account.getTransactions()).toEqual([
+      {"transactionDate": "13/11/2022", "amountDeposited": 100, "remainingBalance": 100}
+    ]);
+    expect(account.getBalance()).toEqual(100);
+  });
+  
+  it('adds multiple "transaction" objects to the array via deposit/withdrawal and updates balance', () => {
+    account.deposit(100, '13/11/2022')
+    account.withdraw(50, '14/11/2022')
+    expect(account.getTransactions()).toEqual([
+      {"transactionDate": "13/11/2022", "amountDeposited": 100, "remainingBalance": 100},
+      {"transactionDate": "14/11/2022", "amountWithdrawn": 50, "remainingBalance": 50}
+    ]);
+    expect(account.getBalance()).toEqual(50);
+  });
 });
