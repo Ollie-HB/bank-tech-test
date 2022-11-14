@@ -11,14 +11,14 @@ class Account {
   deposit(money) {
     this.balance += money;
     this.transactions.push(
-    `${this.getDate()} || || £${money.toFixed(2)} || £${this.getBalance().toFixed(2)}`
+    `${this.getDate()} || £${money.toFixed(2)} || || £${this.getBalance().toFixed(2)}`
     );
   };
 
   withdraw(money) {
     this.balance -= money;
     this.transactions.push(
-    `${this.getDate()} || £${money.toFixed(2)} || || £${this.getBalance().toFixed(2)}`
+    `${this.getDate()} || || £${money.toFixed(2)} || £${this.getBalance().toFixed(2)}`
     );
   };
 
@@ -29,20 +29,14 @@ class Account {
   getDate() {
     let date = new Date().toLocaleString('en-GB').slice(0,-10)
     return `${date}`
-  }
+  };
 
-  // displayTransactions() {
-  //   const header = 'date || credit || debit || balance'
-  //   const format = this.transactions.forEach((transaction)
-    // console.log(transaction)
-  //   )
-  //   return header
-  //  };
+   displayTransactions() {
+    console.log('date || credit || debit || balance')
+    this.transactions.forEach((transaction) => {
+      console.log(transaction);
+    });
+  };
 };
 
 module.exports = Account;
-
-
-
-// `${this.getTodaysDate()} || || ${this.formatValue(withdrawal)} || ${this.getBalance()}`
-
