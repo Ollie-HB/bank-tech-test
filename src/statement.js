@@ -15,7 +15,7 @@ class Statement {
         }
       });
       return formatedStatementLines
-      // attempting to organise the statement lines in the correct order
+      // attempting to organise the statement lines in the correct order (work in progress)
       // let orderedStatement = formatedStatementLines.sort(
       //   (objA, objB) => Number(objB.date) - Number(objA.date),
       //   );

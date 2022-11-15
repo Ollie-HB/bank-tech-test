@@ -8,9 +8,9 @@ class Account {
     return this.balance;
   };
 
-  // if entering date manually, must enter as a string (deposit & withdraw)
-  // if no date is etered, the default value will be todays date
-  // pushing object into transactions array to be formatted in Statement class (deposit & withdraw)
+  // if entering the date manually, you must enter as a string (deposit & withdraw)
+  // if no date is entered, the default value will be today's date
+  // here, we're pushing an object into transactions array to be formatted in the Statement class (deposit & withdraw)
   deposit(money, date = this.getDate()) { 
     this.balance += money;
     this.transactions.push(

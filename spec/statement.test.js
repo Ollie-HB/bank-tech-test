@@ -11,7 +11,7 @@ describe('Statement', () => {
     .useFakeTimers()
     .setSystemTime(new Date('2023-05-27'))
 
-    // plan to add mock examples here for test use
+    // plan to add mock deposits/withdrawals here for use in testing
     
   });
 
