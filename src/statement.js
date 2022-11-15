@@ -5,19 +5,25 @@ class Statement {
   }
 
   formatTransactions() {
-    let format = this.account.getTransactions()
-      format.forEach(transaction => {
+    let transactionObjects = this.account.getTransactions()
+    let formatedStatementLines = transactionObjects.map(transaction => {
         if (transaction['amount'] > 0) {
-          console.log(`${transaction['transactionDate']} || £${transaction['amount'].toFixed(2)} || || £${transaction['remainingBalance'].toFixed(2)}`)
+          return (`${transaction['transactionDate']} || £${transaction['amount'].toFixed(2)} || || £${transaction['remainingBalance'].toFixed(2)}\n`)
         } else {
-        console.log(`${transaction['transactionDate']} || || £${transaction['amount'].toFixed(2)} || £${transaction['remainingBalance'].toFixed(2)}`)
+          // multiplying withdrawal 'amount' by -1 to change it from a negative number into a positive number
+          return (`${transaction['transactionDate']} || || £${(transaction['amount'] * -1).toFixed(2)} || £${transaction['remainingBalance'].toFixed(2)}\n`)
         }
       });
-    return format
+      return formatedStatementLines
+      // attempting to organise the statement lines in the correct order
+      // let orderedStatement = formatedStatementLines.sort(
+      //   (objA, objB) => Number(objB.date) - Number(objA.date),
+      //   );
+      // return orderedStatement
   };
 
   displayTransactions() {
-    return `${this.header}`
+    return `${this.header + this.formatTransactions()}`
   };
 };
 
