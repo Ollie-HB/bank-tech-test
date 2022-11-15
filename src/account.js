@@ -12,7 +12,7 @@ class Account {
     this.balance += money;
     this.transactions.push(
       { transactionDate: date,
-        amountDeposited: money,
+        amount: money,
         remainingBalance: this.getBalance()
       });
   };
@@ -21,7 +21,7 @@ class Account {
     this.balance -= money;
     this.transactions.push(
       { transactionDate: date,
-        amountWithdrawn: money,
+        amount: -money,
         remainingBalance: this.getBalance()
       });
     };
