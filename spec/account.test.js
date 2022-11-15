@@ -2,6 +2,10 @@ const Account = require('../src/account.js');
 
 beforeEach(() => {
   account = new Account();
+  
+  jest
+  .useFakeTimers()
+  .setSystemTime(new Date('2023-05-27'))
 });
 
 describe('Account', () => {
@@ -31,16 +35,23 @@ describe('Account', () => {
 
   it('adds a "transaction" object to the array via deposit and updates balance', () => {
     account.deposit(100)
-    expect(account.getTransactions()).toEqual([`${account.getDate()} || £100.00 || || £100.00`]);
+    expect(account.getTransactions()).toEqual([
+      {"amountDeposited": 100,
+       "remainingBalance": 100,
+        "transactionDate": '27/05/2023'}]);
     expect(account.getBalance()).toEqual(100);
   });
 
   it('adds multiple "transaction" objects to the array via deposit/withdrawal and updates balance', () => {
     account.deposit(100)
     account.withdraw(50)
-    expect(account.getTransactions()).toEqual([`${account.getDate()} || £100.00 || || £100.00`,
-    `${account.getDate()} || || £50.00 || £50.00`]);
+    expect(account.getTransactions()).toEqual([
+      { "amountDeposited": 100,
+      "remainingBalance": 100,
+       "transactionDate": '27/05/2023' },
+       { "amountWithdrawn": 50,
+       "remainingBalance": 50,
+        "transactionDate": '27/05/2023' }]);
     expect(account.getBalance()).toEqual(50);
   });
-  
 });

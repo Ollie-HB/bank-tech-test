@@ -8,19 +8,23 @@ class Account {
     return this.balance;
   };
 
-  deposit(money) {
+  deposit(money, date = this.getDate()) {
     this.balance += money;
     this.transactions.push(
-    `${this.getDate()} || £${money.toFixed(2)} || || £${this.getBalance().toFixed(2)}`
-    );
+      { transactionDate: date,
+        amountDeposited: money,
+        remainingBalance: this.getBalance()
+      });
   };
 
-  withdraw(money) {
+  withdraw(money, date = this.getDate()) {
     this.balance -= money;
     this.transactions.push(
-    `${this.getDate()} || || £${money.toFixed(2)} || £${this.getBalance().toFixed(2)}`
-    );
-  };
+      { transactionDate: date,
+        amountWithdrawn: money,
+        remainingBalance: this.getBalance()
+      });
+    };
 
   getTransactions() {
     return this.transactions;
@@ -29,13 +33,6 @@ class Account {
   getDate() {
     let date = new Date().toLocaleString('en-GB').slice(0,-10)
     return `${date}`
-  };
-
-   displayTransactions() {
-    console.log('date || credit || debit || balance')
-    this.transactions.forEach((transaction) => {
-      console.log(transaction);
-    });
   };
 };
 

@@ -1,14 +1,18 @@
-// class Statement {
-//   constructor(account) {
-//     this.account = account;
-//   }
+const Account = require('./account')
 
-//   displayTransactions() {
-//     console.log('date || credit || debit || balance')
-//     this.account.forEach((transaction) => {
-//       console.log(transaction);
-//     });
-//   };
-// };
+class Statement {
+  constructor() {
+    this.header = 'date || credit || debit || balance'
+    this.account = new Account;
+  }
 
-// module.exports = Statement;
+  // formatTransactions() {
+  //   
+  // };
+
+  displayTransactions() {
+    return `${this.header}`
+  };
+};
+
+module.exports = Statement;
