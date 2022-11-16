@@ -11,11 +11,9 @@ describe('Statement', () => {
     .useFakeTimers()
     .setSystemTime(new Date('2023-05-27'))
 
-    // plan to add mock deposits/withdrawals here for use in testing
-    
+    // plan to add mock deposits/withdrawals here for unit testing purposes
   });
 
-  describe('#displayTransactions/#formatTransactions', () => {
     it('initialises with header', () => {
       expect(statement.displayTransactions()).toEqual('date || credit || debit || balance\n')
     });
@@ -33,5 +31,5 @@ describe('Statement', () => {
       expect(statement.displayTransactions())
       .toEqual('date || credit || debit || balance\n14/01/2023 || || £500.00 || £2500.00\n13/01/2023 || £2000.00 || || £3000.00\n10/01/2023 || £1000.00 || || £1000.00\n');
     })
-  });
 });
+

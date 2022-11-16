@@ -6,8 +6,7 @@ class Statement {
 
   formatTransactions() {
     let transactionArray = this.account.getTransactions()
-
-    let formatedStatementLines = transactionArray.map(transaction => {
+    let formattedStatementLines = transactionArray.map(transaction => {
         if (transaction['amount'] > 0) {
            return (`${transaction['transactionDate']} || £${transaction['amount'].toFixed(2)} || || £${transaction['remainingBalance'].toFixed(2)}\n`)
         } else {
@@ -15,8 +14,8 @@ class Statement {
           return (`${transaction['transactionDate']} || || £${(transaction['amount'] * -1).toFixed(2)} || £${transaction['remainingBalance'].toFixed(2)}\n`)
         }
       });
-      // currently only works (statement prints in order) if the oldest transaction is entered first
-      return formatedStatementLines.reverse().join('');
+      // statement rows only print in order if the oldest transaction is entered first
+      return formattedStatementLines.reverse().join('');
   };
 
   displayTransactions() {

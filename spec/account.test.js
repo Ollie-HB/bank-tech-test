@@ -4,8 +4,7 @@ describe('Account', () => {
   beforeEach(() => {
     account = new Account();
 
-    // chose to mock the date, as getDate() returns the current date, making testing unreliable
-
+    // chose to mock the date here, as getDate() returns the current date, making testing unreliable
     jest
     .useFakeTimers()
     .setSystemTime(new Date('2023-05-27'))
