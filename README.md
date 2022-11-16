@@ -56,4 +56,23 @@ date || credit || debit || balance
  ```
 ### How to run the project in Node
 
-![Screenshot](https://github.com/[Ollie-HB]/[bank-tech-test]/instructions.png?)
+1. When in the project directory, run node in your terminal
+```
+node
+```
+2. Require the Statement class
+```
+const Statement = require('./src/statement');
+```
+3. Require the Account class
+```
+const Account = require('./src/account');
+```
+4. Set up new instances of both Account and Statement classes (Note: you must name the Account class instance 'account', or else it won't be found by the Statement class).
+```
+const account = new Account();
+
+const statement = new Statement();
+```
+5. You are now able to make deposit(), withdraw(), getBalance() and getTransactions() on the account instance, and then displayTransactions() on the Statement class. Please see the [Screenshot](./instructions.png) to see this in action.
+
