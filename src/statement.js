@@ -5,25 +5,22 @@ class Statement {
   }
 
   formatTransactions() {
-    let transactionObjects = this.account.getTransactions()
-    let formatedStatementLines = transactionObjects.map(transaction => {
+    let transactionArray = this.account.getTransactions()
+
+    let formatedStatementLines = transactionArray.map(transaction => {
         if (transaction['amount'] > 0) {
-          return (`${transaction['transactionDate']} || £${transaction['amount'].toFixed(2)} || || £${transaction['remainingBalance'].toFixed(2)}\n`)
+           return (`${transaction['transactionDate']} || £${transaction['amount'].toFixed(2)} || || £${transaction['remainingBalance'].toFixed(2)}\n`)
         } else {
           // multiplying withdrawal 'amount' by -1 to change it from a negative number into a positive number
           return (`${transaction['transactionDate']} || || £${(transaction['amount'] * -1).toFixed(2)} || £${transaction['remainingBalance'].toFixed(2)}\n`)
         }
       });
-      return formatedStatementLines
-      // attempting to organise the statement lines in the correct order (work in progress)
-      // let orderedStatement = formatedStatementLines.sort(
-      //   (objA, objB) => Number(objB.date) - Number(objA.date),
-      //   );
-      // return orderedStatement
+      // currently only works (statement prints in order) if the oldest transaction is entered first
+      return formatedStatementLines.reverse().join('');
   };
 
   displayTransactions() {
-    return `${this.header + this.formatTransactions()}`
+     return `${this.header + this.formatTransactions()}`
   };
 };
 
