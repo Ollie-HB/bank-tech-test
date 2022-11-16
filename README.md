@@ -8,32 +8,21 @@ The purpose of this project is to build a bank account program that can receive 
 
 ### Project setup and installation
 
-This project was written in JavaScript, with Jest for testing, and Node for running the program.
-
-We use NPM (Node Package Manager) to setup and manage this JS project and its dependencies. This guidance assumes you have NVM (the Node Version Manager) installed - if not, head to this page to install it first. Then:
-
-1. First, start by cloning this repo:
+1. Start by cloning this repo:
 ```
 git clone https://github.com/Ollie-HB/bank-tech-test
 ```
+After cloning the repo, you will have package.json and package-lock.json installed (with the Jest package updated too) so no need to initialize/install them.
+
 2. Setup the environment to use node’s latest version:
 ```
 nvm use node
 ```
-3. Initialise the NPM project (this will create a file package.json), and install the NPM package:
-```
-npm init -y
-npm install
-```
-4. Add the jest package to our project - (this will update package.json and package-lock.json)
-```
-npm add jest
-```
-5. Install jest "globally" - (this is so we can run the jest command)
+3. Install jest "globally" - (this is so we can run the `jest` command)
 ```
 npm install -g jest
 ```
-6. Run the Jest command:
+4. Run the Jest command:
 ```
 jest
 ```
