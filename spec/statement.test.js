@@ -23,7 +23,7 @@ describe('Statement', () => {
       expect(statement.displayTransactions()).toEqual('date || credit || debit || balance\n27/05/2023 || £100.00 || || £100.00\n');
     });
 
-    // currently only works if the oldest transaction is entered first + unknown plus symbols after new lines in Node + line 34 is far too long
+    // currently only works if the oldest transaction is entered first + unknown plus symbols and '\n' after new lines in Node + line 34 is far too long
     it('returns statement with multiple entries correctly formatted', () => {
       account.deposit(1000, '10/01/2023')
       account.deposit(2000, '13/01/2023')

@@ -59,19 +59,21 @@ const account = new Account();
 
 const statement = new Statement();
 ```
-5. You are now able to deposit(), withdraw(), getBalance() and getTransactions() with the 'account' instance, and then displayTransactions() using the 'statement' instance. Please see this [screenshot](./instructions.png) for a visual guide.
+5. You are now able to deposit(), withdraw(), getBalance() and getTransactions() with the 'account' instance, and then displayTransactions() using the 'statement' instance. Please see this [screenshot](./images/instructions.png) for a visual guide.
 
-### My approach
+### My process and challenges
 
 For this tech test, my approach centred around the idea of having two classes, ‘Account’ and ‘Statement’ - Account for ‘input’, and Statement to give the desired ‘output’. 
 
-Following a TDD process, I started by creating a basic Account class, dealing with balance, deposits and withdrawals. Once these functions were passing tests, I then moved on to the more challenging aspect of obtaining and storing transaction data. After considering both objects and formatted strings for the array, I eventually decided to store transactions as objects with a transactionDate, amount and remainingBalance, leaving the formatting to the Statement class. For this, I wrote a getDate() function to get today’s date, but soon realised that for the acceptance criteria, the user would need to be able to input specific dates. Therefore, I implemented a default value of today’s date, but dates can also be entered manually as a string if desired. I used the getBalance() function to add the balance to the object after it had been updated, then these objects are pushed to the transactions array in the constructor.
+Following a TDD process, I started by creating a basic Account class, dealing with balance, deposits and withdrawals. Once these functions were passing tests, I then moved on to the more challenging aspect of obtaining and storing transaction data. After considering both objects and formatted strings for the array, I eventually decided to store transactions as objects with a transactionDate, amount and remainingBalance, leaving the formatting to the Statement class. For this, I wrote a getTodaysDate() function to get today’s date, but soon realised that for the acceptance criteria, the user would need to be able to input specific dates. Therefore, I implemented a default value of today’s date, but dates can also be entered manually as a string if desired. I used the getBalance() function to add the balance to the object after it had been updated, then these objects are pushed to the transactions array in the constructor.
 
 Next, I moved on to the Statement class. I started by running simple tests to pull through the transaction array, then wrote a test for the header. Once I was happy that transaction data was being pulled through, I wrote tests for my desired output. To get this output formatted was the most challenging part of the tech test. It involved going back to my account class and changing the withdraw object’s ‘amount’ property to a negative number, so I could then use an if/else conditional to distinguish between deposits and withdrawals, by checking whether the number was positive or negative. After sorting them and formatting them as strings (with newlines), I then changed the withdraw ‘amount’ number back to a positive number (so it would appear as required on the statement in node).
 
-I implemented a .reverse().join(‘’) feature on the new formatted array, so the output would match the desired criteria and appear in reverse chronological order (most recent transaction first). This feature needs improving, as if transactions are not entered in chronological order (oldest first), they will not be displayed in the correct order. Therefore, my current goal is to create a function that orders all transactions by date. I am also getting extra ‘+’ symbols in my node output, which I plan to debug and remove as well.
+Remaining tasks/bugs
 
-[Screenshot of my TDD process](./tdd.png)
+I implemented a .reverse().join(‘’) feature on the new formatted array, so the output would match the desired criteria and appear in reverse chronological order (most recent transaction first). This feature needs improving, as if transactions are not entered in chronological order (oldest first), they will not be displayed in the correct order. Therefore, my current goal is to create a function that orders all transactions by date. I am also getting extra ‘+’ symbols and '\n' characters in my node output, which I plan to debug and remove as well. Finally, I hope to add mocks to my tests of the Statement class, to conduct more thorough unit testing.
+
+[Screenshot of my TDD process](./images/tdd.png)
 
 ### Requirements and acceptance criteria
 

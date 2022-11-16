@@ -11,7 +11,7 @@ class Account {
   // if entering the date manually, you must enter as a string (deposit & withdraw)
   // if no date is entered, the default value will be today's date
   // here, we're pushing an object into the transactions array to be formatted in the Statement class (deposit & withdraw)
-  deposit(money, date = this.getDate()) { 
+  deposit(money, date = this.getTodaysDate()) { 
     this.balance += money;
     this.transactions.push(
       { transactionDate: date,
@@ -20,7 +20,7 @@ class Account {
       });
   };
 
-  withdraw(money, date = this.getDate()) {
+  withdraw(money, date = this.getTodaysDate()) {
     this.balance -= money;
     this.transactions.push(
       { transactionDate: date,
@@ -33,7 +33,7 @@ class Account {
     return this.transactions;
   };
 
-  getDate() {
+  getTodaysDate() {
     let date = new Date().toLocaleString('en-GB').slice(0,-10)
     return `${date}`
   };

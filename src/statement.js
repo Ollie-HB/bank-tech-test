@@ -5,8 +5,8 @@ class Statement {
   }
 
   formatTransactions() {
-    let transactionArray = this.account.getTransactions()
-    let formattedStatementLines = transactionArray.map(transaction => {
+    let transactionsArray = this.account.getTransactions()
+    let formattedStatementLines = transactionsArray.map(transaction => {
         if (transaction['amount'] > 0) {
            return (`${transaction['transactionDate']} || £${transaction['amount'].toFixed(2)} || || £${transaction['remainingBalance'].toFixed(2)}\n`)
         } else {
