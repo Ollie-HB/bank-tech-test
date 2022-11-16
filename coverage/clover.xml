@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1668607191772" clover="3.2.0">
+  <project timestamp="1668607191772" name="All files">
+    <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="10" coveredmethods="10" elements="35" coveredelements="35" complexity="0" loc="21" ncloc="21" packages="1" files="2" classes="2"/>
+    <file name="account.js" path="/Users/ollie/Projects/Coding/Makers_files/week_10/bank-tech-test/src/account.js">
+      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
+      <line num="3" count="11" type="stmt"/>
+      <line num="4" count="11" type="stmt"/>
+      <line num="8" count="17" type="stmt"/>
+      <line num="15" count="7" type="stmt"/>
+      <line num="16" count="7" type="stmt"/>
+      <line num="24" count="5" type="stmt"/>
+      <line num="25" count="5" type="stmt"/>
+      <line num="33" count="7" type="stmt"/>
+      <line num="37" count="9" type="stmt"/>
+      <line num="38" count="9" type="stmt"/>
+      <line num="42" count="2" type="stmt"/>
+    </file>
+    <file name="statement.js" path="/Users/ollie/Projects/Coding/Makers_files/week_10/bank-tech-test/src/statement.js">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
+      <line num="3" count="3" type="stmt"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="10" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="3" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="18" count="3" type="stmt"/>
+      <line num="22" count="3" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

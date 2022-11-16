@@ -1,12 +1,12 @@
 class Account {
   constructor() {
-    this.balance = 0;
-    this.transactions = [];
-  };
+    this.balance = 0
+    this.transactions = []
+  }
 
   getBalance() {
     return this.balance;
-  };
+  }
 
   // if entering the date manually, you must enter as a string (deposit & withdraw)
   // if no date is entered, the default value will be today's date
@@ -18,7 +18,7 @@ class Account {
         amount: money,
         remainingBalance: this.getBalance()
       });
-  };
+  }
 
   withdraw(money, date = this.getTodaysDate()) {
     this.balance -= money;
@@ -27,16 +27,16 @@ class Account {
         amount: -money,
         remainingBalance: this.getBalance()
       });
-    };
+    }
 
   getTransactions() {
     return this.transactions;
-  };
+  }
 
   getTodaysDate() {
     let date = new Date().toLocaleString('en-GB').slice(0,-10)
     return `${date}`
-  };
-};
+  }
+}
 
 module.exports = Account;

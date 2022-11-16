@@ -87,3 +87,10 @@ date || credit || debit || balance
 13/01/2023 || 2000.00 || || 3000.00
 10/01/2023 || 1000.00 || || 1000.00
  ```
+
+### Testing
+
+Use the jest --coverage command to see test coverage (currently at 100%).
+```
+jest --coverage
+```
